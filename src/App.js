@@ -4,10 +4,11 @@ function App() {
   const [data, setData] = useState("");
 
   const value = "World";
+
   useEffect(() => {
     (async function () {
-      const { text } = await (await fetch(`/api/message`).json(),
-      setData(text));
+      const { text } = await (await fetch(`/api/message`)).json();
+      setData(text);
     })();
   });
   return <div>Hello {data}</div>;
